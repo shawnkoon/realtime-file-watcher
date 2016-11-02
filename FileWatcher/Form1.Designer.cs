@@ -34,7 +34,7 @@
             this.startWatchingButton = new System.Windows.Forms.Button();
             this.resultListBox = new System.Windows.Forms.ListBox();
             this.clearButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.aboutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             this.openFileButton.TabIndex = 2;
             this.openFileButton.Text = "Open File";
             this.openFileButton.UseVisualStyleBackColor = true;
+            this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
             // 
             // startWatchingButton
             // 
@@ -78,6 +79,7 @@
             this.startWatchingButton.TabIndex = 3;
             this.startWatchingButton.Text = "Start Watching";
             this.startWatchingButton.UseVisualStyleBackColor = true;
+            this.startWatchingButton.Click += new System.EventHandler(this.startWatchingButton_Click);
             // 
             // resultListBox
             // 
@@ -98,25 +100,27 @@
             this.clearButton.TabIndex = 5;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // button1
+            // aboutButton
             // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(198, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 49);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "About";
-            this.button1.UseVisualStyleBackColor = false;
+            this.aboutButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.aboutButton.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.aboutButton.Location = new System.Drawing.Point(198, 84);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(108, 49);
+            this.aboutButton.TabIndex = 6;
+            this.aboutButton.Text = "About";
+            this.aboutButton.UseVisualStyleBackColor = false;
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 436);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.resultListBox);
             this.Controls.Add(this.startWatchingButton);
@@ -141,7 +145,7 @@
         private System.Windows.Forms.Button startWatchingButton;
         private System.Windows.Forms.ListBox resultListBox;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button aboutButton;
     }
 }
 
