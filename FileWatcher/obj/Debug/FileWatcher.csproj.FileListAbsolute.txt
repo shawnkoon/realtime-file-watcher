@@ -6,3 +6,4 @@ C:\Users\sson\Desktop\Shawn\Programs\gitHub\realtime-file-watcher\FileWatcher\ob
 C:\Users\sson\Desktop\Shawn\Programs\gitHub\realtime-file-watcher\FileWatcher\obj\Debug\FileWatcher.csproj.GenerateResource.Cache
 C:\Users\sson\Desktop\Shawn\Programs\gitHub\realtime-file-watcher\FileWatcher\obj\Debug\FileWatcher.exe
 C:\Users\sson\Desktop\Shawn\Programs\gitHub\realtime-file-watcher\FileWatcher\obj\Debug\FileWatcher.pdb
+C:\Users\sson\Desktop\Shawn\Programs\gitHub\realtime-file-watcher\FileWatcher\obj\Debug\FileWatcher.MainForm.resources
