@@ -79,12 +79,15 @@ namespace FileWatcher
             if(fileWatching == false)
             {
                 fileWatching = true;
+                openFileButton.Enabled = false;
 
                 fileWatcher.Path = pathName;
                 fileWatcher.Filter = fileName;
 
                 fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
                 fileWatcher.Changed += new FileSystemEventHandler(OnChanged);
+                
+            
 
                 fileWatcher.EnableRaisingEvents = true;
                 startWatchingButton.Text = "STOP";
@@ -95,13 +98,24 @@ namespace FileWatcher
                 fileWatcher.EnableRaisingEvents = false;
                 startWatchingButton.Text = "Start Watching";
                 timer1.Stop();
-
+                openFileButton.Enabled = true;
+                fileWatching = false;
             }
         }
 
         private void OnChanged(object source, FileSystemEventArgs e)
         {
-            sToPrint = File.ReadLines(fullPath).Last();
+            using (StreamReader reader = new StreamReader(fullPath))
+            {
+                string s = "";
+                
+                while( (s = reader.ReadLine()) != null)
+                {
+                    sToPrint = s;
+                    
+                }
+            }
+            
             mutex = true;
         }
         
