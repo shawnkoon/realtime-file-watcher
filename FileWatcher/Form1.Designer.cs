@@ -111,10 +111,12 @@
             // 
             // resultListBox
             // 
+            this.resultListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultListBox.FormattingEnabled = true;
+            this.resultListBox.ItemHeight = 16;
             this.resultListBox.Location = new System.Drawing.Point(12, 201);
             this.resultListBox.Name = "resultListBox";
-            this.resultListBox.Size = new System.Drawing.Size(500, 225);
+            this.resultListBox.Size = new System.Drawing.Size(500, 212);
             this.resultListBox.TabIndex = 4;
             // 
             // timer1

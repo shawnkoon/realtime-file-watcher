@@ -136,6 +136,9 @@ namespace FileWatcher
             {
                 mutex = false;
                 resultListBox.Items.Add(sToPrint);
+
+                resultListBox.SelectedIndex = resultListBox.Items.Count - 1;
+                resultListBox.SelectedIndex = -1;
             }
         }
     }
