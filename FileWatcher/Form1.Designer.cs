@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileButton = new System.Windows.Forms.Button();
             this.startWatchingButton = new System.Windows.Forms.Button();
-            this.resultListBox = new System.Windows.Forms.ListBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.resultListBox = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,14 +83,6 @@
             this.startWatchingButton.UseVisualStyleBackColor = true;
             this.startWatchingButton.Click += new System.EventHandler(this.startWatchingButton_Click);
             // 
-            // resultListBox
-            // 
-            this.resultListBox.FormattingEnabled = true;
-            this.resultListBox.Location = new System.Drawing.Point(12, 201);
-            this.resultListBox.Name = "resultListBox";
-            this.resultListBox.Size = new System.Drawing.Size(500, 225);
-            this.resultListBox.TabIndex = 4;
-            // 
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.Color.LightCoral;
@@ -114,6 +108,19 @@
             this.aboutButton.Text = "About";
             this.aboutButton.UseVisualStyleBackColor = false;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
+            // 
+            // resultListBox
+            // 
+            this.resultListBox.FormattingEnabled = true;
+            this.resultListBox.Location = new System.Drawing.Point(12, 201);
+            this.resultListBox.Name = "resultListBox";
+            this.resultListBox.Size = new System.Drawing.Size(500, 225);
+            this.resultListBox.TabIndex = 4;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
@@ -143,9 +150,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button openFileButton;
         private System.Windows.Forms.Button startWatchingButton;
-        private System.Windows.Forms.ListBox resultListBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button aboutButton;
+        private System.Windows.Forms.ListBox resultListBox;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
