@@ -19,8 +19,7 @@ namespace FileWatcher
         private string pathName = "";
         private string fullPath = "";
         private FileSystemWatcher fileWatcher = new FileSystemWatcher();
-        private string sToPrint = "";
-        private bool mutex = false;
+        // implement Queue.
        
 
         public MainForm()
@@ -36,8 +35,8 @@ namespace FileWatcher
             fileWatching = false;
             fileName = "";
             pathName = "";
-            sToPrint = "";
             fileWatcher = new FileSystemWatcher();
+            // Initialize Queue.
         }
 
         private void openFileButton_Click(object sender, EventArgs e)
@@ -102,40 +101,45 @@ namespace FileWatcher
                 fileWatching = false;
             }
         }
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            String msg = "Hello!\nMy name is shawnkoon.\n" +
+                         "Please come visit : https://github.com/shawnkoon \n" +
+                         "Thanks!\n" +
+                         "\n\nHow to use :\n" +
+                         "1. Open File.\n2. Press Start!\n3. Watch it";
+            MessageBox.Show(msg, "About the File Watcher!");
+        }
 
+
+        /*
+         * This method will put newly added lines in the file into a Queue.
+         */
         private void OnChanged(object source, FileSystemEventArgs e)
         {
-            using (StreamReader reader = new StreamReader(fullPath))
+            var fileShare = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using (StreamReader reader = new StreamReader(fileShare))
             {
                 string s = "";
                 
                 while( (s = reader.ReadLine()) != null)
                 {
-                    sToPrint = s;
+                    // Add s to a Queue.
                     
                 }
             }
+
             
-            mutex = true;
         }
         
-
-        private void aboutButton_Click(object sender, EventArgs e)
-        {
-            String msg = "Hello!\nMy name is shawnkoon.\n" +
-                         "Please come visit : https://github.com/shawnkoon \n" +
-                         "Thanks!\n"+
-                         "\n\nHow to use :\n"+
-                         "1. Open File.\n2. Press Start!\n3. Watch it";
-            MessageBox.Show(msg,"About the File Watcher!");
-        }
-
+        /*
+         * This method will write Queue out to a listBox.
+         */
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(mutex == true)
+            if()// Queue is not mepty)
             {
-                mutex = false;
-                resultListBox.Items.Add(sToPrint);
+                resultListBox.Items.Add(// Queue pop);
 
                 resultListBox.SelectedIndex = resultListBox.Items.Count - 1;
                 resultListBox.SelectedIndex = -1;
