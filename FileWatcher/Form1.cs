@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FileWatcher
 {
     public partial class MainForm : Form
     {
-        private bool fileWatching = false;
-        private string fileName = "";
-        private string pathName = "";
-        private string fullPath = "";
-        private FileSystemWatcher fileWatcher = new FileSystemWatcher();
-        // implement Queue.
+        private bool fileWatching;
+        private string fileName;
+        private string pathName;
+        private string fullPath;
+        private FileSystemWatcher fileWatcher;
+        private Queue<String> fileItemQueue;
        
 
         public MainForm()
@@ -36,9 +29,9 @@ namespace FileWatcher
             fileName = "";
             pathName = "";
             fileWatcher = new FileSystemWatcher();
-            // Initialize Queue.
+            fileItemQueue = new Queue<string>();
         }
-
+        
         private void openFileButton_Click(object sender, EventArgs e)
         {
             if(fileWatching == true)
@@ -125,7 +118,7 @@ namespace FileWatcher
                 while( (s = reader.ReadLine()) != null)
                 {
                     // Add s to a Queue.
-                    
+                    fileItemQueue.Enqueue(s);
                 }
             }
 
@@ -137,9 +130,9 @@ namespace FileWatcher
          */
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if()// Queue is not mepty)
+            if(fileItemQueue.Count > 0)
             {
-                resultListBox.Items.Add(// Queue pop);
+                resultListBox.Items.Add(fileItemQueue.Dequeue());
 
                 resultListBox.SelectedIndex = resultListBox.Items.Count - 1;
                 resultListBox.SelectedIndex = -1;
