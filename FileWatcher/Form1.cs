@@ -68,6 +68,8 @@ namespace FileWatcher
 
         private void startWatchingButton_Click(object sender, EventArgs e)
         {
+            fileItemQueue.Clear();
+
             if(fileWatching == false)
             {
                 fileWatching = true;
@@ -117,7 +119,6 @@ namespace FileWatcher
                 string lastLine = currentLine;
                 while( (currentLine = reader.ReadLine()) != null)
                 {
-                    // Add s to a Queue.
                     lastLine = currentLine;
                 }
 
