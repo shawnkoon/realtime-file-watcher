@@ -113,13 +113,15 @@ namespace FileWatcher
             var fileShare = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (StreamReader reader = new StreamReader(fileShare))
             {
-                string s = "";
-                
-                while( (s = reader.ReadLine()) != null)
+                string currentLine = "";
+                string lastLine = currentLine;
+                while( (currentLine = reader.ReadLine()) != null)
                 {
                     // Add s to a Queue.
-                    fileItemQueue.Enqueue(s);
+                    lastLine = currentLine;
                 }
+
+                fileItemQueue.Enqueue(lastLine);
             }
 
             
